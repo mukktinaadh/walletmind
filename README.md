@@ -1,6 +1,13 @@
-# WalletMind V4
+# WalletMind — On-Chain Credit Intelligence Engine
 
-WalletMind is an advanced on-chain credit intelligence system that evaluates Ethereum wallets, providing a comprehensive reputation score, network cluster analysis, risk flags, and underwriting signals.
+WalletMind analyzes Ethereum wallets using behavioral signals, network graph analytics, and reputation scoring to estimate creditworthiness and lending capacity in Web3.
+
+## Live Demo
+[https://walletmind.vercel.app](https://walletmind.vercel.app)
+
+### Example Wallets:
+*   **Vitalik:** `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+*   **Uniswap Router:** `0x7a250d5630b4cf539739df2c5dacab4c659f2488`
 
 ## Deployment Guide
 

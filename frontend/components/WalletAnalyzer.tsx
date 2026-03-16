@@ -141,6 +141,39 @@ export default function WalletAnalyzer() {
                 </button>
             </div>
 
+            {/* First-Time User Helper & Example Wallets */}
+            {!result && !loading && !error && (
+                <div className="space-y-6 animate-in fade-in duration-700 pt-4">
+                    <p className="text-center text-sm text-gray-400 bg-white/5 border border-white/10 py-3 px-6 rounded-xl w-fit mx-auto">
+                        Enter any Ethereum wallet address to generate an AI-powered Web3 credit score.
+                    </p>
+
+                    <div className="flex flex-col items-center">
+                        <span className="text-xs text-gray-500 uppercase tracking-widest mb-3 font-semibold">Example Wallets</span>
+                        <div className="flex flex-wrap justify-center gap-3">
+                            <button
+                                onClick={() => setAddress("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045")}
+                                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm text-gray-300 transition-colors"
+                            >
+                                Vitalik Wallet
+                            </button>
+                            <button
+                                onClick={() => setAddress("0x7a250d5630b4cf539739df2c5dacab4c659f2488")}
+                                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm text-gray-300 transition-colors"
+                            >
+                                Uniswap Router
+                            </button>
+                            <button
+                                onClick={() => setAddress("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2")}
+                                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm text-gray-300 transition-colors"
+                            >
+                                Random Active Wallet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Error Message */}
             {error && (
                 <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 flex items-start gap-3">
@@ -149,8 +182,21 @@ export default function WalletAnalyzer() {
                 </div>
             )}
 
+            {/* Loading State */}
+            {loading && (
+                <div className="py-12 flex flex-col items-center justify-center space-y-6 rounded-2xl bg-white/5 border border-white/10 animate-in fade-in duration-500 mt-6">
+                    <div className="w-12 h-12 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
+                    <div className="flex flex-col items-center space-y-2 text-sm text-gray-400 font-mono text-center">
+                        <span className="text-white font-semibold">Analyzing wallet...</span>
+                        <span className="text-blue-400 animate-pulse">Fetching blockchain data...</span>
+                        <span className="opacity-80">Building network graph...</span>
+                        <span className="opacity-60">Computing credit model...</span>
+                    </div>
+                </div>
+            )}
+
             {/* Analysis Results */}
-            {result && (
+            {result && !loading && (
                 <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {/* Score Card */}
